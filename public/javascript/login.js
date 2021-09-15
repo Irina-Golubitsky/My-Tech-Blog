@@ -3,6 +3,8 @@ async function loginFormHandler(event) {
 
   const email = document.querySelector('#email-login').value.trim();
   const password = document.querySelector('#password-login').value.trim();
+  console.log(email);
+  console.log(password);
 
   if (email && password) {
     const response = await fetch('/api/users/login', {
@@ -13,41 +15,30 @@ async function loginFormHandler(event) {
       }),
       headers: { 'Content-Type': 'application/json' }
     });
-
+    console.log(response);
     if (response.ok) {
       document.location.replace('/dashboard/');
     } else {
-      alert(response.statusText);
+      document.getElementById('email-login').classList.add("border-red-300");
+      document.getElementById('password-login').classList.add("border-red-300");
+      document.getElementById("wronginput").style.visibility = "visible";
     }
   }
 }
 
-async function signupFormHandler(event) {
-  event.preventDefault();
 
-  const username = document.querySelector('#username-signup').value.trim();
-  const email = document.querySelector('#email-signup').value.trim();
-  const password = document.querySelector('#password-signup').value.trim();
 
-  if (username && email && password) {
-    const response = await fetch('/api/users', {
-      method: 'post',
-      body: JSON.stringify({
-        username,
-        email,
-        password
-      }),
-      headers: { 'Content-Type': 'application/json' }
-    });
-
-    if (response.ok) {
-      document.location.replace('/dashboard/');
-    } else {
-      alert(response.statusText);
-    }
-  }
+function updateValue() {
+  document.getElementById('email-login').classList.remove("border-red-300");
+      document.getElementById('password-login').classList.remove("border-red-300");
+      document.getElementById("wronginput").style.visibility = "hidden";
 }
 
+const input = document.querySelector('input');
+
+input.addEventListener('input', updateValue);
+
+document.getElementById("wronginput").style.visibility = "hidden";
 document.querySelector('.login-form').addEventListener('submit', loginFormHandler);
 
-document.querySelector('.signup-form').addEventListener('submit', signupFormHandler);
+
