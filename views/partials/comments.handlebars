@@ -1,12 +1,33 @@
-<div class="comments">
+{{!-- <div class="comments">
   {{#each this}}
-  <section class="comment">
-    <div class="meta">
-      {{user.username}} on {{format_date created_at}}
+    <div class="card">
+        <h3 class="card-header"></h3>
+        <section class="comment card-body">
+            <div class="text">
+                {{comment_text}}
+            </div>
+            <div class="meta">
+                -{{user.username}}, {{format_date created_at}}
+            </div>
+        </section>
     </div>
-    <div class="text">
-      {{comment_text}}
-    </div>
-  </section>
   {{/each}}
+</div> --}}
+{{#each this}}
+<div class="flex-col max-w-4xl px-10 my-4 py-6 bg-white rounded-lg shadow-md">
+    <div class="flex justify-between items-center">
+      
+        <span class="font-light text-gray-600">{{format_date created_at}}</span>
+        <a class="px-2 py-1 bg-gray-600 text-gray-100 font-bold rounded hover:bg-gray-500" href="#">Comment</a>
+    </div>
+    <div class="flex justify-between items-center mt-4">
+        <div class="flex items-center">
+                <img class="mx-4 w-10 h-10 object-cover rounded-full hidden sm:block"
+                    src="https://www.bsn.eu/wp-content/uploads/2016/12/user-icon-image-placeholder.jpg?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=373&q=80"
+                    alt="avatar">
+                <h1 class="text-gray-700 font-bold">{{user.username}}</h1>
+                <h1 class="text-gray-600"> : {{comment_text}}</h1>
+        </div>
+    </div>
 </div>
+{{/each}}
