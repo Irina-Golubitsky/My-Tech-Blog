@@ -1,35 +1,20 @@
-<article>
-  <a href="/dashboard"> &larr; Back to dashboard</a>
-  <h2>
-    Edit Post
-  </h2>
-  <form class="edit-post-form">
-    <div>
-      <input name="post-title" type="text" value="{{post.title}}" />
-      <span>({{post.post_text}})</span>
+</div>
+  <div class="edit-post-form text-center flex-wrap bg-gray-200  p-4 ">
+<a  href="/dashboard"> &larr; Back to dashboard</a>
+  <div class="flex-col max-w-4xl  rounded-lg bg-white mx-auto w-10/12 flex flex-col text-gray-800 border border-gray-300 p-4 shadow-lg max-w-2xl">
+    <input class="rounded-lg  bg-gray-100 border border-gray-300 p-2 mb-4 outline-none" spellcheck="true" type="text" id="post-title" name="post-title" value="{{post.title}}" >
+    <textarea class="rounded-lg  bg-gray-100 justify-start p-3 h-60 border border-gray-300 outline-none" spellcheck="true" id="post-text" name="post-text" value="{{post.post_text}}">{{post.post_text}}</textarea>
+    <!-- buttons -->
+    <div class="buttons flex">
+      <button onclick="editFormHandler(event)" class="btn border rounded-lg  m-2 border-indigo-500 p-1 px-4 font-semibold cursor-pointer text-gray-200 ml-2 bg-indigo-500 hover:bg-indigo-700">Save post</button>
+      <button onclick="deleteFormHandler(event)" class="btn delete-post-btn border rounded-lg  m-2 border-indigo-500 p-1 px-4 font-semibold cursor-pointer text-gray-200 ml-2 bg-indigo-500 hover:bg-indigo-700">Delete post</button>
     </div>
-    <div>
      
-      
-      <a href="/post/{{post.id}}">{{post.comments.length}} {{format_plural "comment" post.comments.length}}</a>
-    </div>
-    <button type="submit">Save post</button>
-    <button type="button" class="delete-post-btn">Delete post</button>
-  </form>
-</article>
-
-<form class="comment-form">
-  <div>
-    <textarea name="comment-body"></textarea>
   </div>
-
-  <div>
-    <button type="submit">add comment</button>
   </div>
-</form>
+  
 
-{{> comments post.comments}}
+
 
 <script src="/javascript/edit-post.js"></script>
-<script src="/javascript/delete-post.js"></script>
-<script src="/javascript/comment.js"></script>
+

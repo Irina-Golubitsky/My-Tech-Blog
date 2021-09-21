@@ -2,7 +2,7 @@
 <div class="flex-wrap justify-center bg-gray-200">
   {{#each posts as |post|}}
   
-    {{> post-info post }}
+    <a href="/post/{{post.id}}" class="edit-link">{{> post-info post }}</a>
  
   {{/each}}
 </div>

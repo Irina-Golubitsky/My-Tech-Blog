@@ -23,3 +23,9 @@ async function newFormHandler(event) {
 }
 
 document.querySelector('.new-post-form').addEventListener('submit', newFormHandler);
+document.getElementById('show-add-post').addEventListener("click", function(event) {
+  event.preventDefault();
+
+  document.getElementById('add-post').removeAttribute("class");
+  document.getElementById('show-add-post').style.visibility="hidden";
+});
