@@ -52,11 +52,12 @@ THEN I am able to view comments but I am prompted to log in again before I can a
 - [Installation](#installation)
 - [License](#license)
 - [Screenshots](#screenshot)
+- [Deployed](#deployed)
 - [Questoins](#questions)
   
 ## Installation 
 
-This app is already deployed 
+This app is already deployed - https://ig-tech-blog.herokuapp.com/
 
 if you want to install it locally:               
 ` npm install `  
@@ -83,7 +84,9 @@ DB_PW='--your mysql pass--'
 |![alt text](public/img/sshome.png) | ![alt text](public/img/ssdash.png)|
 |![alt text](public/img/sscomment.png) | ![alt text](public/img/ssedit.png)|
 
+## Deployed
 
+https://ig-tech-blog.herokuapp.com/
    
 ## Questions
   If you hane any questions:
